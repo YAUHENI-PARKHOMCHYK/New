@@ -1,6 +1,7 @@
 package lesson7;
 
 import java.time.LocalDate;
+import java.util.Random;
 
 
 public class Question implements Comparable<Question> {
@@ -16,6 +17,8 @@ public class Question implements Comparable<Question> {
         this.priority = priority;
         this.status = status;
     }
+
+
 
     public String getPriority() {
         return priority;

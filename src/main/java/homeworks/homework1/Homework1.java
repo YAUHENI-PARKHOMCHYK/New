@@ -16,6 +16,7 @@ public class Homework1 {
 
     static List<Magazines> userMagazine = new ArrayList<>();
 
+    static List<String> userChoice = new ArrayList<>();
     public static void main(String[] args) {
 
 
@@ -28,6 +29,7 @@ public class Homework1 {
         magazines.add(new Magazines("The Guardian", 80, 2010, 1));
         magazines.add(new Magazines("The Daily Mail", 120, 2020, 6));
         magazines.add(new Magazines("The Economist", 100, 2000, 4));
+
 
         System.out.println("Введите ниже (book) или (magazine) в соответсвии с вашими интересами: ");
 
@@ -49,9 +51,11 @@ public class Homework1 {
             }
 
 
-        System.out.println("Ваш выбор: " + userBook.toString() + userMagazine.toString());
-        System.out.println("На сумму: ");
 
+        System.out.println("Ваш выбор: " + userChoice.toString());
+        System.out.println("На сумму: ");
+        System.out.println("///////////////////////////////////////////////////////////////////");
+        System.out.println("ИНФОРМАЦИЯ: " + userBook.toString() + userMagazine.toString());
     }
         public static void bookChoice(List<Books> books){
             List<Integer>dirBooks = new ArrayList<>();
@@ -62,7 +66,7 @@ public class Homework1 {
                 System.out.println("(" + numbBook + ") " + books.get(i));
                 numb++;
             }
-            System.out.println("Введите номера книг которые вы хотите получить(для выхода введите 0, если желаете добавить к выбору журналы введите -1): ");
+            System.out.println("Введите номера книг которые вы хотите получить(для выхода введите -1, если желаете добавить к выбору журналы введите 0): ");
 
 
 
@@ -79,6 +83,7 @@ public class Homework1 {
 
                    choiceNumb = scanNumb - 1;
                    userBook.add(books.get(choiceNumb));
+                   userChoice.add(books.get(choiceNumb).getBookName());
                    System.out.println("Вы добавили: " + userBook.get(i));
                    int price = userBook.get(i).getPrice();
                    summ = summ + price;
@@ -87,10 +92,10 @@ public class Homework1 {
                        System.out.println("Вы превысили допустимый баланс!");
                    }
                    dirBooks.add(i,scanNumb);
-               }else if(scanNumb==-1){
+               }else if(scanNumb==0){
                    magazineChoice(magazines);
                }
-               if (scanNumb == 0) {
+               if (scanNumb == -1) {
                    break;
                }
            }
@@ -104,7 +109,7 @@ public class Homework1 {
                     System.out.println("(" + numbMagazines + ") " + magazines.get(i));
                     numb++;
                 }
-                System.out.println("Введите номера журналов которые вы хотите получить(для выхода введите 0, если желаете добавить к выбору книги введите -1): ");
+                System.out.println("Введите номера журналов которые вы хотите получить(для выхода введите -1, если желаете добавить к выбору книги введите 0): ");
 
 
 
@@ -120,6 +125,7 @@ public class Homework1 {
                         dirMagazine.add(i,scanNumb);
                         choiceNumb = scanNumb - 1;
                         userMagazine.add(magazines.get(choiceNumb));
+                        userChoice.add(magazines.get(choiceNumb).getMagazineName());
                         System.out.println("Вы добавили: " + userMagazine.get(i));
                         int price = userMagazine.get(i).getPrice();
                         summ = summ + price;
@@ -127,10 +133,10 @@ public class Homework1 {
                         if(summ>1000){
                             System.out.println("Вы превысили допустимый баланс!");
                         }
-                    }else if(scanNumb ==-1){
+                    }else if(scanNumb ==0){
                         bookChoice(books);
                     }
-                    if (scanNumb == 0) {
+                    if (scanNumb == -1) {
                         break;
                     }
                 }

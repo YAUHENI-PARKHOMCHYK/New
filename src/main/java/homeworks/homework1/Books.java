@@ -21,7 +21,11 @@ public class Books {
             return price;
         }
 
-        @Override
+    public String getBookName() {
+        return bookName;
+    }
+
+    @Override
         public String toString() {
             return "Books{" +
                     "bookName='" + bookName + '\'' +
