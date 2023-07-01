@@ -1,14 +1,11 @@
 package lesson8;
 
-import java.lang.reflect.Array;
-import java.util.ArrayDeque;
-import java.util.Collections;
-import java.util.PriorityQueue;
+import java.util.*;
 
 public class Lesson8 {
     public static void main(String[] args) {
 
-        PriorityQueue<Event> quality = new PriorityQueue<>();
+        Queue<Event> quality = new PriorityQueue<>();
 
         Event event1 = new Event("Включит телевизор", "NORMAL");
         Event event2 = new Event("Пожар", "EMERGENCY");
@@ -25,7 +22,7 @@ public class Lesson8 {
         info(quality);
 
     }
-    public static void info(PriorityQueue<Event> events){
+    public static void info(Queue<Event> events){
         while (!events.isEmpty()){
             System.out.println(events.poll());
         }
