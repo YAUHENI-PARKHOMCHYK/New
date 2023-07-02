@@ -1,14 +1,14 @@
 package homeworks.homework2;
 
-public class Stack implements Comparable<Stack>{
+public class Stack {
     String mathExpression;
-
-    char [] dirStart;
-    char [] dirEnd;
+    char [] dir;
+    int rightBracketStart;
+    int rightBracketEnd;
+    int leftBracketStart;
+    int leftBracketEnd;
     public Stack(String mathExpression) {
         this.mathExpression = mathExpression;
-        this.mathExpression.getChars(0,mathExpression.length()-1,dirStart,0);
-
     }
 
     @Override
@@ -18,10 +18,27 @@ public class Stack implements Comparable<Stack>{
                 '}';
     }
 
-    @Override
-    public int compareTo(Stack o) {
-        if(this.dirStart.equals('(') && !o.dirStart.equals(')')) return Integer.parseInt("Ошибка: не закрыта скобка");
-        if(!this.dirStart.equals('(') && o.dirStart.equals(')')) return Integer.parseInt("Ошибка: не открыта скобка");
-        return Integer.parseInt("Скобки открыты правильно");
+    public String correct(){
+        rightBracketStart = mathExpression.indexOf(')');
+        rightBracketEnd = mathExpression.lastIndexOf(')');
+        leftBracketStart = mathExpression.indexOf('(');
+        leftBracketEnd = mathExpression.lastIndexOf('(');
+
+
+        if(rightBracketStart==-1 || (rightBracketEnd==rightBracketStart && leftBracketEnd!=leftBracketStart)) {
+            return "Ошибка: не закрыта скобка";}
+        if(leftBracketStart==-1 || (leftBracketEnd==leftBracketStart && rightBracketEnd!=rightBracketStart)) {
+            return "Ошибка: не открыта скобка";
+        }
+        if((leftBracketEnd==leftBracketStart) && (rightBracketEnd==rightBracketStart)) {
+
+            return "Ошибка: не открыта и не закрыта скобка";
+        }
+
+        return "Скобки открыты правильно";
+
     }
+
+
+
 }
