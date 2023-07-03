@@ -1,13 +1,13 @@
 package homeworks.homework2;
 
-public class Stack {
+public class Brackets {
     String mathExpression;
     char [] dir;
     int rightBracketStart;
     int rightBracketEnd;
     int leftBracketStart;
     int leftBracketEnd;
-    public Stack(String mathExpression) {
+    public Brackets(String mathExpression) {
         this.mathExpression = mathExpression;
     }
 
