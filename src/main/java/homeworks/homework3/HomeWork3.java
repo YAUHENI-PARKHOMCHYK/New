@@ -1,5 +1,7 @@
 package homeworks.homework3;
 
+import com.sun.jdi.InterfaceType;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -17,5 +19,4 @@ public class HomeWork3 {
 
 
     }
-
 }

@@ -1,8 +1,16 @@
 package lesson8;
 
+import homeworks.homework3.Person;
+
 import java.util.*;
 
 public class Lesson8 {
+
+    public interface lFNames<String,Double>{
+
+    }
+
+
     public static void main(String[] args) {
 
         Queue<Event> quality = new PriorityQueue<>();

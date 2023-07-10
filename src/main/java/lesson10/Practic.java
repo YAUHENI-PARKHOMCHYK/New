@@ -1,12 +1,14 @@
 package lesson10;
 
+import javax.swing.tree.TreeNode;
 import java.util.*;
-import java.util.stream.Stream;
 
 public class Practic {
     public static void main(String[] args) {
         String text = "Здравствуй мой милый друг";
         System.out.println(translate(text));
+
+
     }
     public static String translate(String str){
         TreeMap<String, String> translator = new TreeMap<>();
@@ -28,4 +30,5 @@ public class Practic {
         }
         return newText;
     }
+
 }
