@@ -1,5 +1,7 @@
 package algoritms.homeworks.homeworkAlgoritms;
 
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
 
 public class HomeworkStack {
@@ -10,6 +12,17 @@ public class HomeworkStack {
     sequenceCheck(sequence);
     sequenceCheck(fg);
     sequenceCheck(s);
+
+        LinkedList<Integer> asd = new LinkedList<>();
+        asd.add(1);
+        asd.add(2);
+        asd.add(3);
+        asd.add(3);
+        asd.add(2);
+        asd.add(1);
+
+        System.out.println(linkList(asd));
+
 
     }
     public static void sequenceCheck(String str){
@@ -39,4 +52,30 @@ public class HomeworkStack {
             System.out.println("Последовательность является не правильной!");
         }
     }
+    public static boolean linkList(LinkedList<Integer> list){
+        Queue<Integer> queue = new LinkedList<>();
+        Stack<Integer> stack = new Stack<>();
+
+        int size = list.size()/2;
+        if(list.isEmpty()){
+            return true;
+        }
+        for(int i = 0; i<list.size(); i++){
+            if(i<size) {
+                queue.add(list.get(i));
+            }else {
+                stack.push(list.get(i));
+            }
+        }
+        int i =0;
+        while (!queue.isEmpty() && !stack.isEmpty()){
+            if(!queue.remove().equals(stack.pop())){
+                return false;
+            }
+        }
+        return true;
+    }
 }
+
+
+
