@@ -26,17 +26,21 @@ public class HomeworkLambda {
     }
     public static void sum(int [] nums){
 
-        int finalY = 0;
         List<Integer>numbers = new ArrayList<>();
-//        numbers.forEach((e)->e+e);
-//        Function<Integer,Integer> sum = ((x)->);
+        for(int value : nums){
+            numbers.add(value);
+        }
+        int result = 1;
+        for (int i =0; i<nums.length;i++) {
+//            Function<Integer, Integer> sum = ((x, y) -> result += x);
+        }
         for(int i = 0; i<nums.length; i++){
 //            finalY = sum.apply(nums[i]);
         }
 //        for(int summ: nums){
 //            finalY = sum.apply(summ);
 //        }
-        System.out.println(finalY);
+//        System.out.println(finalY);
 //        Function<Integer,Integer> sum = ((x)-> x + y);
 
     }
