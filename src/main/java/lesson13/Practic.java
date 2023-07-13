@@ -1,8 +1,6 @@
 package lesson13;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Practic {
@@ -27,5 +25,46 @@ public class Practic {
         Set<String> sortElem = elem.stream().sorted((o1, o2) -> o1.compareTo(o2)).collect(Collectors.toSet());
         System.out.println(sortElem);
 
+
+        List<Integer> values = Arrays.asList(2,5,3,6,1,9,7,8,15,11);
+        long sum = values.stream().reduce(0,(x,y)->x+y);
+        double midleValue = values.stream().reduce(0,(x,y)->(x+y)).doubleValue()/values.size();
+
+        System.out.println(sum);
+        System.out.println(midleValue);
+
+        Person person1 = new Person("Yauheni");
+        Person person2 = new Person("Valery");
+        Person person3 = new Person("Natallia");
+        Person person4 = new Person("Svetlana");
+
+
+        List<Person> people = new ArrayList<>();
+        people.add(person1);
+        people.add(person2);
+        people.add(person3);
+        people.add(person4);
+
+        List<Person>sortedNames = people.stream().sorted((o1, o2) -> o1.name.compareTo(o2.name)).toList();
+        System.out.println(Arrays.toString(sortedNames.toArray()));
+
+
+        List<String> text = Arrays.asList(
+        "Hello my Friend",
+        "Where are you my dear Friend",
+        "Hello world");
+
+
+        List<String> saveStrings = text.stream().flatMap(x-> Arrays.stream(x.split(" "))).distinct().toList();
+        System.out.println(saveStrings);
+
+        long countStrings = text.stream().flatMap(x-> Arrays.stream(x.split(" "))).distinct().count();
+        System.out.println(countStrings);
+
+        Optional<String> qwe = text.stream().flatMap(x-> Arrays.stream(x.split(" "))).distinct().max(Comparator.comparing(String::length));
+        System.out.println(qwe);
+
+        List<String> sortText = text.stream().sorted((o1, o2)->(o2.split(" ").length - o1.split(" ").length)).toList();
+        System.out.println(sortText);
     }
 }
