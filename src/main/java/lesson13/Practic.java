@@ -66,5 +66,8 @@ public class Practic {
 
         List<String> sortText = text.stream().sorted((o1, o2)->(o2.split(" ").length - o1.split(" ").length)).toList();
         System.out.println(sortText);
+
+        String longestWord = text.stream().flatMap(x->Arrays.stream(x.split(" "))).max((word1, word2) -> word1.length()-word2.length()).orElse("");
+        System.out.println(longestWord);
     }
 }
